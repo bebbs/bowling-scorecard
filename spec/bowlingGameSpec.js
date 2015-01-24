@@ -16,6 +16,14 @@ describe("A bowling game", function() {
     expect(game.score()).toEqual(20);
   });
 
+  it("can roll a spare", function() {
+    game.roll(5);
+    game.roll(5);
+    game.roll(3);
+    rollMultiple(0, 17);
+    expect(game.score()).toEqual(16);
+  })
+
   var rollMultiple = function(pins, rolls) {
     for(var i = 0; i < rolls; i++) {
       game.roll(pins);
