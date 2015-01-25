@@ -34,6 +34,8 @@ bowlingGame.prototype.score = function() {
     return game.rolls[game.rollIndex] + game.rolls[game.rollIndex+1] === 10;
   };
 
+  // Strike and spare score are the same method?
+
   function strikeScore() {
     return game.rolls[game.rollIndex] + game.rolls[game.rollIndex+1] + game.rolls[game.rollIndex+2];
   };

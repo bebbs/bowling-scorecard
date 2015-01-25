@@ -63,6 +63,14 @@ describe("A bowling game", function() {
       expect(game.runningTotal()).toEqual(26);
     });
 
+    it("after multiple strikes", function() {
+      game.roll(10);
+      game.roll(10);
+      game.roll(1);
+      game.roll(2);
+      expect(game.runningTotal()).toEqual(37);
+    });
+
   });
 
   var rollMultiple = function(pins, rolls) {
