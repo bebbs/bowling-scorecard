@@ -1,0 +1,21 @@
+@import url('normalize.css');
+
+body {
+  background-color: #34495e;
+  font-family: sans-serif;
+  color: #ecf0f1;
+}
+
+.container {
+  text-align: center;
+  margin: 0 auto;
+  width: 70%;
+}
+
+table, th, td {
+  border: solid 1px #ecf0f1;
+}
+
+td, th {
+  padding: 1em;
+}
