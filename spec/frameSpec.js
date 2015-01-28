@@ -31,7 +31,7 @@ describe("Frame", function() {
       expect(frame.totalScore).toEqual(8);
     });
 
-    it("knows that a score is a strike when 10 is rolled", function() {
+    it("knows that knows when a strike is rolled", function() {
       frame.receiveRollOne(10);
       expect(frame._isAStrike()).toBe(true);
     });
@@ -40,6 +40,12 @@ describe("Frame", function() {
       frame.receiveRollOne(10);
       frame.receiveRollTwo(2);
       expect(frame.rollTwoScore).toEqual(0);  
+    });
+
+    it("knows when both rolls result in a spare", function() {
+      frame.receiveRollOne(4);
+      frame.receiveRollTwo(6);
+      expect(frame._isASpare()).toBe(true);
     });
     
   });

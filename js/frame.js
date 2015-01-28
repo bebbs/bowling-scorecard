@@ -22,3 +22,7 @@ Frame.prototype.receiveRollTwo = function(numberOfPins) {
 Frame.prototype._isAStrike = function() {
   return this.rollOneScore === 10;
 };
+
+Frame.prototype._isASpare = function() {
+  return (this.rollOneScore + this.rollTwoScore === 10);
+};
