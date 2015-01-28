@@ -1,4 +1,4 @@
-var Frame = function() {
+var Frame = function(game) {
   this.totalScore = 0;
   this.bonusScore = 0;
   this.rollOneScore = 0;
