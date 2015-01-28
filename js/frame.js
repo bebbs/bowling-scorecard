@@ -1,18 +1,16 @@
 var Frame = function() {
   this.totalScore = 0;
-  this.availableRolls = 2;
+  this.bonusScore = 0;
+  this.rollOneScore = 0;
+  this.rollTwoScore = 0;
 };
 
-Frame.prototype.receiveRoll = function(numberOfPins) {
-  this.availableRolls -= 1;
-  if (this.totalScore + numberOfPins > 10) {
-    this.totalScore = 10;
-  } else {
-    this.totalScore += numberOfPins;
-  };
-  
-  if (numberOfPins === 10) {
-    this.availableRolls = 0;
-  };
+Frame.prototype.receiveRollOne = function(numberOfPins) {
+  this.rollOneScore += numberOfPins;
+  this.totalScore += this.rollOneScore;
+};
 
+Frame.prototype.receiveRollTwo = function(numberOfPins) {
+  this.rollTwoScore += numberOfPins;
+  this.totalScore += this.rollTwoScore;
 };
