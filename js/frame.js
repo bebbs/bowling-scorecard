@@ -6,11 +6,19 @@ var Frame = function() {
 };
 
 Frame.prototype.receiveRollOne = function(numberOfPins) {
-  this.rollOneScore += numberOfPins;
+  this.rollOneScore = numberOfPins;
   this.totalScore += this.rollOneScore;
 };
 
 Frame.prototype.receiveRollTwo = function(numberOfPins) {
-  this.rollTwoScore += numberOfPins;
-  this.totalScore += this.rollTwoScore;
+  if (this.rollOneScore === 10) {
+    this.rollTwoScore = 0; 
+  } else {
+    this.rollTwoScore = numberOfPins;
+    this.totalScore += this.rollTwoScore;
+  };
+};
+
+Frame.prototype._isAStrike = function() {
+  return this.rollOneScore === 10;
 };
