@@ -10,7 +10,7 @@ Scorecard.prototype.setupGame = function() {
 
 Scorecard.prototype.calculateScore = function() {
   for(var i=0; i<10; i++) {
-    if (i !== 0) {
+    if (this.frames[i].totalScore === 10) {
       this.calculateBonusScore(i);
     };
     this.totalScore += this.frames[i].totalScore;
@@ -18,10 +18,10 @@ Scorecard.prototype.calculateScore = function() {
 };
 
 Scorecard.prototype.calculateBonusScore = function(x) {
-  if (this.frames[x-1]._isAStrike()) {
-    this.frames[x-1].totalScore += this.frames[x].totalScore;
-  } else if (this.frames[x-1]._isASpare()) {
-    this.frames[x-1].totalScore += this.frames[x].firstRollScore;
+  if (this.frames[x]._isAStrike()) {
+    this.frames[x].totalScore += this.frames[x+1].totalScore;
+  } else if (this.frames[x]._isASpare() && !this.frames[x]._isAStrike()) {
+    this.frames[x].totalScore += this.frames[x+1].rollOneScore;
   };
 };
 
